@@ -1,10 +1,8 @@
 # Bookstore-CRUD-App
 Uol Databases and Advanced Data Techniques CM3010 Midterm
 
-This is a social networking application created with Python and Django, that allows user creation, authentication, adding of friends and real-time chat.
-My sns app is called UBook, an app that allows users to socialize and keep their friends updated. It is a responsive site whereby the navigation bar and 
-the contents resize according to the device’s size. The styling of the application is done with bootstrap4, with the addition of my own custom styles as 
-well. A detailed explanation can be found at "report/AWD_Final_Report.pdf".
+This is a CRUD bookstore web application done with Javascript and Node.js. It allows querying of the bookstore data such as books, authors, publishers etc.
+A detailed explanation of how the application works can be found at "DNW midterm report.pdf".
 
 ### How to run the application:
 1) Create the Database: node create_db.js
