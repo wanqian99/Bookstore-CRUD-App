@@ -7,10 +7,7 @@ the contents resize according to the device’s size. The styling of the applica
 well. A detailed explanation can be found at "report/AWD_Final_Report.pdf".
 
 ### How to run the application:
-1) Navigate to virtual environment: cd snsApp_venv/bin
-2) Activate virtual environment: source activate
-3) Navigate to source code: cd SNS_Project
-4) Make migrations: python3 manage.py makemigrations
-5) Migrate: python3 manage.py migrate
-6) Run server: python3 manage.py runserver
-7) Base url to access UBook: http://127.0.0.1:8000/
+1) Create the Database: node create_db.js
+2) Connect to the database, Create Cables and Populate them with CSV data: node populate_db.js
+3) Run web app: node index.js
+4) Url: http://127.0.0.1:8088/
