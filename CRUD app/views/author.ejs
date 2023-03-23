@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script type = "text/javascript" src="/js/scripts.js"></script>
+</head>
+    <body>
+        <header>
+            <div class="topnav">
+                <a href="/">Home</a>
+                <a href="book">Books</a>
+                <a href="author" class="active">Authors</a>
+                <a href="publisher">Publishers</a>
+                <a href="location">Books published Location</a>
+                <a href="category">Books Category</a>
+                <a href="format">Books Format</a>
+                <a href="cover">Books Cover</a>
+                <a href="inventory">Books Inventory</a>
+            </div>
+        </header>
+
+        <h1>Authors page</h1>
+        <p>This page consists of a table that contains the data in the author table.</p>
+
+        <form action="/author" method="POST">
+            <input type="text" name="keyword" placeholder="Search by author">
+            <input type="submit" value="Search">
+        </form>
+
+        <button onclick="sortTable(1)">Sort by author</button>
+        
+        <form action="/author" method="GET">
+            <br>
+            <table border="1" id="table">
+                <tr>
+                    <th>id</th>
+                    <th>Author</th>
+                </tr>
+                <% if (author.length == 0) { %>
+                    <p>No author named: <%=search%></p>
+                <% } else { %>
+                    <% for(var i = 0; i < author.length; i++) { %>
+                    <tr>
+                        <td><%=author[i].id%></td>
+                        <td><%=author[i].author%></td>
+                    </tr>
+                    <% } %>
+                <% } %>
+            </table>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script type = "text/javascript" src="/js/scripts.js"></script>
+</head>
+    <body>
+        <header>
+            <div class="topnav">
+                <a href="/">Home</a>
+                <a href="book">Books</a>
+                <a href="author">Authors</a>
+                <a href="publisher">Publishers</a>
+                <a href="location">Books published Location</a>
+                <a href="category">Books Category</a>
+                <a href="format">Books Format</a>
+                <a href="cover" class="active">Books Cover</a>
+                <a href="inventory">Books Inventory</a>
+            </div>
+        </header>
+
+        <h1>Books Cover page</h1>
+        <p>This page consists of a table that contains the data in the cover table.</p>
+        
+        <form action="/cover" method="POST">
+            <input type="text" name="keyword" placeholder="Search by title">
+            <input type="submit" value="Search">
+        </form>
+
+        <button onclick="sortTable(4)">Sort by title</button>
+            
+        <form action="/cover" method="GET">
+            <br>
+            <table border="1" id="table">
+                <tr>
+                    <th>id</th>
+                    <th>URL</th>
+                    <th>Image</th>
+                    <th>Book_id</th>
+                    <th>Book title</th>
+                </tr>
+                <% if (cover.length == 0) { %>
+                    <p>No book title named <%=search%></p>
+                <% } else { %>
+                    <% for(var i = 0; i < cover.length; i++) { %>
+                    <tr>
+                        <td><%=cover[i].id%></td>
+                        <td>
+                            <a href="<%=cover[i].url%>"><%=cover[i].url%></a>
+                        </td>
+                        <td class="imgContainer">
+                            <img src="<%=cover[i].image%>" class="bookImg">
+                            <%=cover[i].image%>
+                        </td>
+                        <td><%=cover[i].book_id%></td>
+                        <td><%=title[i].title%></td>
+                    </tr>
+                    <% } %>
+                <% } %>
+            </table>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script type = "text/javascript" src="/js/scripts.js"></script>
+</head>
+    <body>
+        <header>
+            <div class="topnav">
+                <a href="/">Home</a>
+                <a href="book">Books</a>
+                <a href="author">Authors</a>
+                <a href="publisher">Publishers</a>
+                <a href="location">Books published Location</a>
+                <a href="category">Books Category</a>
+                <a href="format" class="active">Books Format</a>
+                <a href="cover">Books Cover</a>
+                <a href="inventory">Books Inventory</a>
+            </div>
+        </header>
+
+        <h1>Books Format page</h1>
+        <p>This page consists of a table that contains the data in the format table.</p>
+        
+        <form action="/format" method="POST">
+            <input type="text" name="keyword" placeholder="Search by format">
+            <input type="submit" value="Search">
+        </form>
+
+        <button onclick="sortTable(1)">Sort by format</button>
+        
+            
+        <form action="/format" method="GET">
+            <br/>
+            <table border="1" id="table">
+                <tr>
+                    <th>id</th>
+                    <th>Format</th>
+                </tr>
+                <% if (format.length == 0) { %>
+                    <p>No format named <%=search%></p>
+                <% } else { %>
+                    <% for(var i = 0; i < format.length; i++) { %>
+                    <tr>
+                        <td><%=format[i].id%></td>
+                        <td><%=format[i].format%></td>
+                    </tr>
+                    <% } %>
+                <% } %>
+            </table>
+        </form>
+    </body>
+</html>

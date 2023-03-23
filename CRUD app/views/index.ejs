@@ -1,0 +1,112 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script type = "text/javascript" src="/js/scripts.js"></script>
+</head>
+    <body>
+        <header>
+            <div class="topnav">
+                <a href="/" class="active">Home</a>
+                <a href="book">Books</a>
+                <a href="author">Authors</a>
+                <a href="publisher">Publishers</a>
+                <a href="location">Books published Location</a>
+                <a href="category">Books Category</a>
+                <a href="format">Books Format</a>
+                <a href="cover">Books Cover</a>
+                <a href="inventory">Books Inventory</a>
+            </div>
+        </header>
+
+        <h1>Home page</h1>
+        <p>This page consists of a table that contains all the data in the csv file.</p>
+
+        <form action="/" method="POST">
+            <input type="text" name="keyword" placeholder="Search by title">
+            <input type="submit" value="Search">
+        </form>
+
+        <form action="/searchAuthor" method="POST">
+            <input type="text" name="keyword" placeholder="Search by author">
+            <input type="submit" value="Search">
+        </form>
+
+        <form action="/searchPublisher" method="POST">
+            <input type="text" name="keyword" placeholder="Search by publisher">
+            <input type="submit" value="Search">
+        </form>
+
+        <form action="/searchCategory" method="POST">
+            <input type="text" name="keyword" placeholder="Search by category">
+            <input type="submit" value="Search">
+        </form>
+        
+        
+        <button onclick="sortTable_Int_Float(0)">Sort by id</button>
+        <button onclick="sortTable_Int_Float(1)">Sort by ISBN</button>
+        <button onclick="sortTable(2)">Sort by title</button>
+        <button onclick="sortTable_Int_Float(3)">Sort by year</button>
+        <button onclick="sortTable_Int_Float(4)">Sort by price</button>
+        <button onclick="sortTable_Int_Float(5)">Sort by rating</button>
+        <button onclick="sortTable_Int_Float(6)">Sort by length</button>
+        <button onclick="sortTable(7)">Sort by author</button>
+        <button onclick="sortTable(8)">Sort by publisher</button>
+        <button onclick="sortTable(9)">Sort by location</button>
+        <button onclick="sortTable(10)">Sort by category</button>
+        <button onclick="sortTable(11)">Sort by format</button>
+        <button onclick="sortTable_Int_Float(14)">Sort by quantity</button>
+
+
+        <form action="/" method="GET">
+            <br>
+            <table border="1" id="table">
+                <tr>
+                    <th>id</th>
+                    <th>ISBN</th>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Price</th>
+                    <th>Rating</th>
+                    <th>Length</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>Location</th>
+                    <th>Category</th>
+                    <th>Format</th>
+                    <th>URL</th>
+                    <th>Image</th>
+                    <th>Quantity</th>
+                </tr>
+                <% if (book.length == 0) { %>
+                    <p>No book title named <%=search%></p>
+                <% } else { %>
+                    <% for(var i = 0; i < book.length; i++) { %>
+                    <tr>
+                        <td><%=book[i].id%></td>
+                        <td><%=book[i].ISBN%></td>
+                        <td><%=book[i].title%></td>
+                        <td><%=book[i].year%></td>
+                        <td><%=book[i].price%></td>
+                        <td><%=book[i].rating%></td>
+                        <td><%=book[i].length%></td>
+                        <td><%=author[i].author%></td>
+                        <td><%=publisher[i].publisher%></td>
+                        <td><%=location[i].city%>, <%=location[i].country%></td>
+                        <td><%=category[i].category%></td>
+                        <td><%=format[i].format%></td>
+                        <td>
+                            <a href="<%=cover[i].url%>"><%=cover[i].url%></a>
+                        </td>
+                        <td><%=cover[i].image%></td>
+                        <td><%=inventory[i].quantity%></td>
+                    </tr>
+                    <% } %>
+                <% } %>
+            </table>
+        </form>
+    </body>
+</html>

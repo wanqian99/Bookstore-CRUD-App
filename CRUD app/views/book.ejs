@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script type = "text/javascript" src="/js/scripts.js"></script>
+</head>
+    <body>
+        <header>
+            <div class="topnav">
+                <a href="/">Home</a>
+                <a href="book" class="active">Books</a>
+                <a href="author">Authors</a>
+                <a href="publisher">Publishers</a>
+                <a href="location">Books published Location</a>
+                <a href="category">Books Category</a>
+                <a href="format">Books Format</a>
+                <a href="cover">Books Cover</a>
+                <a href="inventory">Books Inventory</a>
+            </div>
+        </header>
+
+        <!-- <% for(var i=0;i<book.length;i++){ %>
+            <%=book[i].id%>:
+            <%=book[i].name%>
+        <% } %> -->
+        
+        <h1>Books page</h1>
+        <p>This page consists of a table that contains all the books, with the ISBN number, book's title, year published, price, rating and book length</p>
+
+        <form action="/book" method="POST">
+            <input type="text" name="keyword" placeholder="Search by title">
+            <input type="submit" value="Search">
+        </form>
+
+        <button onclick="sortTable(2)">Sort by title</button>
+        
+        <form action="/book" method="GET">
+            <br>
+            <table border="1" id="table">
+                <tr>
+                    <th>id</th>
+                    <th>ISBN</th>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Price</th>
+                    <th>Rating</th>
+                    <th>Length</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>Location</th>
+                    <th>Category</th>
+                    <th>Format</th>
+                </tr>
+                <% if (book.length == 0) { %>
+                    <p>No book named: <%=search%></p>
+                <% } else { %>
+                    <% for(var i = 0; i < book.length; i++){ %>
+                    <tr>
+                        <td><%=book[i].id%></td>
+                        <td><%=book[i].ISBN%></td>
+                        <td><%=book[i].title%></td>
+                        <td><%=book[i].year%></td>
+                        <td><%=book[i].price%></td>
+                        <td><%=book[i].rating%></td>
+                        <td><%=book[i].length%></td>
+                        <td><%=book[i].author_id%></td>
+                        <td><%=book[i].publisher_id%></td>
+                        <td><%=book[i].location_id%></td>
+                        <td><%=book[i].category_id%></td>
+                        <td><%=book[i].format_id%></td>
+                    </tr>
+                    <% } %>
+                <% } %>
+            </table>
+        </form>
+        
+
+        <!-- <table border="1">
+            <tr>
+                <th>id</th>
+                <th>name</th>
+            </tr>
+			{{#data}}
+			<tr>
+                <td>{{id}}</td>
+                <td>{{name}}</td>
+            </tr>
+			{{/data}}
+		</table> -->
+    </body>
+</html>
